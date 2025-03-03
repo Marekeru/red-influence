@@ -1,0 +1,87 @@
+// Komponenten
+@forward "components/buttons";
+
+// Abschnitte
+@forward "sections/hero";
+@forward "sections/footer";
+
+@import "pagepiling.js/dist/jquery.pagepiling.css";
+
+@import "pagepiling.js/dist/jquery.pagepiling.css";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+#pagepiling {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.snap-section {
+    width: 100vw;
+    height: 100vh;
+}
+
+#pp-nav {
+    top: 50%;
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            a {
+                width: 8px;
+                height: 8px;
+                background: white;
+                border-radius: 50%;
+                display: block;
+                margin: 10px auto;
+                transition: all 0.3s ease-in-out;
+
+                span {
+                    display: none;
+                }
+            }
+
+            .active {
+                transform: scale(2);
+                background: white;
+            }
+
+            .pp-tooltip {
+                color: white;
+                font-size: 14px;
+                padding: 5px 10px;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 5px;
+                transition: all 0.3s ease-in-out;
+            }
+
+            &:hover {
+                .pp-tooltip, .active ~ .pp-tooltip {
+                    font-size: 16px;
+                    font-weight: bold;
+                    background: white;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+

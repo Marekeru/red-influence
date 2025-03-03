@@ -1,0 +1,27 @@
+@import "../variables";
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+
+#hero {
+    background-color: $background-color-black;
+    .animate-marquee {
+        display: inline-block;
+        animation: marquee 20s linear infinite;
+        white-space: nowrap;
+    }
+
+    .sub_title {
+        font-family: 'Rubik', sans-serif;
+
+        .focus {
+            color: $font-color-red;
+        }
+    }
+}
+
+

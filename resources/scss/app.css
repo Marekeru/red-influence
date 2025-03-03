@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+@import "pagepiling.js/dist/jquery.pagepiling.css";
+@import "pagepiling.js/dist/jquery.pagepiling.css";
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+#hero {
+  background-color: #040d12;
+}
+#hero .animate-marquee {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  white-space: nowrap;
+}
+#hero .sub_title {
+  font-family: "Rubik", sans-serif;
+}
+#hero .sub_title .focus {
+  color: #e0003b;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#pagepiling {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.snap-section {
+  width: 100vw;
+  height: 100vh;
+}
+
+#pp-nav {
+  top: 50%;
+}
+#pp-nav ul {
+  list-style: none;
+  padding: 0;
+}
+#pp-nav ul li a {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  display: block;
+  margin: 10px auto;
+  transition: all 0.3s ease-in-out;
+}
+#pp-nav ul li a span {
+  display: none;
+}
+#pp-nav ul li .active {
+  transform: scale(2);
+  background: white;
+}
+#pp-nav ul li .pp-tooltip {
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+#pp-nav ul li:hover .pp-tooltip, #pp-nav ul li:hover .active ~ .pp-tooltip {
+  font-size: 16px;
+  font-weight: bold;
+  background: white;
+  color: black;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*# sourceMappingURL=app.css.map */
