@@ -19,7 +19,7 @@
             {{ \App\Models\Setting::getValue('site_heading') }}
         </p>
 
-        <div class="text-right mr-20 mt-20">
+        <div class="text-right mr-10 mt-20">
             <p class="sub_title text-[6rem] font-light">
                 <?php
                     $subtitle = \App\Models\Setting::getValue('site_subtitle');
