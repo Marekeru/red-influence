@@ -37,7 +37,6 @@ class AdminController extends Controller
             Setting::updateOrCreate(['key' => 'favicon'], ['value' => $path]);
         }
 
-        // Bleibt im Tab "Allgemeine Einstellungen"
         return redirect()->route('admin.dashboard', ['tab' => 'general'])->with('success', 'Einstellungen gespeichert!');
     }
 
@@ -47,10 +46,14 @@ class AdminController extends Controller
             Setting::updateOrCreate(['key' => $key], ['value' => $value]);
         }
 
+        if ($request->hasFile('aboutPicture')) {
+            $path = $request->file('aboutPicture')->store('images', 'public');
+            Setting::updateOrCreate(['key' => 'aboutPicture'], ['value' => $path]);
+        }
+
         return redirect()->route('admin.dashboard', ['tab' => 'content'])->with('success', 'Seiteninhalte gespeichert!');
     }
 
-    // 📌 Neuen Editor speichern
     public function storeEditor(Request $request)
     {
         $request->validate([

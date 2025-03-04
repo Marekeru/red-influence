@@ -31,10 +31,10 @@
 <div id="pagepiling">
     <div class="section" id="hero">@include('sections.hero')</div>
     <div class="section" id="about">@include('sections.about')</div>
+    <div class="section" id="clients">@include('sections.clients')</div>
     <div class="section" id="projects">@include('sections.projects')</div>
     <div class="section" id="services">@include('sections.services')</div>
     <div class="section" id="team">@include('sections.team')</div>
-    <div class="section" id="clients">@include('sections.clients')</div>
     <div class="section" id="contact">@include('sections.contact')</div>
     <div class="section" id="form">@include('sections.form')</div>
 </div>

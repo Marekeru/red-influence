@@ -1,9 +1,12 @@
 // Komponenten
 @forward "components/buttons";
+@forward "components/img";
 
 // Abschnitte
-@forward "sections/hero";
-@forward "sections/footer";
+@import "sections/hero";
+@import "sections/clients";
+@import "sections/about";
+@import "sections/footer";
 
 @import "pagepiling.js/dist/jquery.pagepiling.css";
 

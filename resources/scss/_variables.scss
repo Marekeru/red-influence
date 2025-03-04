@@ -1,3 +1,12 @@
 //Colors
 $background-color-black: #040d12;
 $font-color-red: #e0003b;
+
+//font-weights
+$font-size-sm: min(2vw, 2vh);  // Nimmt den kleineren Wert von 4% der Breite oder 4% der Höhe
+$font-size-md: min(2vw, 4vh);  // Nimmt den kleineren Wert von 6% der Breite oder 6% der Höhe
+$font-size-lg: min(4vw, 8vh); // Nimmt den kleineren Wert von 10% der Breite oder 10% der Höhe
+$font-size-xl: min(6vw, 12vh); // Nimmt den kleineren Wert von 12% der Breite oder 12% der Höhe
+$font-size-xxl: min(15vw, 30vh); // Nimmt den kleineren Wert von 15% der Breite oder 15% der Höhe
+$font-size-xxxl: min(18vw, 36vh); // Nimmt den kleineren Wert von 18% der Breite oder 18% der Höhe
+
