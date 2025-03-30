@@ -10,21 +10,21 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h4>Klient hinzufügen
+                        <h4>Projekt hinzufügen
                             <a href="{{ route('admin.content') }}" class="btn btn-danger float-end">Zurück</a>
                         </h4>
                     </div>
                     <div class="card-body">
 
-                        <form action="{{ route('admin.add-client.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.add-project.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="name">Name</label>
                                 <input type="text" name="name" class="form-control">
                             </div>
                             <div class="form-group mb-3">
-                                <label for="image">Grafik</label>
-                                <input type="file" name="image" class="form-control">
+                                <label for="video">Video</label>
+                                <input type="file" name="video" class="form-control">
                             </div>
                             <div class="form-group mb-3">
                                 <button type="submit" class="btn btn-primary">Speichern</button>

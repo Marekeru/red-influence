@@ -31,9 +31,9 @@ class AdminController extends Controller
     public function content()
     {
         $clients = \App\Models\Client::all();
-        $users = \App\Models\User::all();
+        $projects = \App\Models\Client::all();
 
-        return view('admin.content', compact('clients', 'users'));
+        return view('admin.content', compact('clients', 'projects'));
     }
 
 
