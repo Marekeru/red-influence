@@ -52,6 +52,11 @@ Route::get('/datenschutz', function () {
 require __DIR__.'/auth.php';
 
 //Client Image-Crud
-Route::get('clients', [\App\Http\Controllers\Client::class, 'index']);
-Route::get('add-client', [\App\Http\Controllers\Client::class, 'create']);
-Route::post('add-client', [\App\Http\Controllers\Client::class, 'store']);
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::get('clients', [\App\Http\Controllers\Client::class, 'index'])->name('clients');
+    Route::get('add-client', [\App\Http\Controllers\Client::class, 'create'])->name('add-client');
+    Route::post('add-client', [\App\Http\Controllers\Client::class, 'store'])->name('add-client.store');
+    Route::get('edit-client/{id}', [\App\Http\Controllers\Client::class, 'edit'])->name('edit-client');
+    Route::put('update-client/{id}', [\App\Http\Controllers\Client::class, 'update'])->name('update-client');
+    Route::get('delete-client/{id}', [\App\Http\Controllers\Client::class, 'destroy'])->name('delete-client');
+});

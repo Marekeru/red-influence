@@ -30,9 +30,12 @@ class AdminController extends Controller
 
     public function content()
     {
-        $settings = Setting::all()->keyBy('key');
-        return view('admin.content', compact('settings'));
+        $clients = \App\Models\Client::all();
+        $users = \App\Models\User::all();
+
+        return view('admin.content', compact('clients', 'users'));
     }
+
 
     public function update(Request $request)
     {

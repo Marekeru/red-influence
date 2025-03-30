@@ -1,7 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
 
@@ -11,13 +10,13 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h4>Grafik hochladen
-                            <a href="{{ url('clients') }}" class="btn btn-danger float-end">Zurück</a>
+                        <h4>Klient hinzufügen
+                            <a href="{{ route('admin.content') }}" class="btn btn-danger float-end">Zurück</a>
                         </h4>
                     </div>
                     <div class="card-body">
 
-                        <form action="{{ url('add-client') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.add-client.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="name">Name</label>
