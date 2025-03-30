@@ -20,8 +20,16 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                         {{ __('Administration') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
+                        {{ __('Benutzerverwaltung') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.content')" :active="request()->routeIs('admin.content')">
+                        {{ __('Content Management') }}
                     </x-nav-link>
                 </div>
             </div>

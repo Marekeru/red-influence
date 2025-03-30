@@ -18,37 +18,37 @@ img {
     transform: translateX(-100%);
   }
 }
-#hero {
+#hero.section {
   background-color: #040d12;
 }
-#hero .top-bar-container {
+#hero.section .top-bar-container {
   width: 100%;
   height: fit-content;
 }
-#hero .top-bar-container .top-bar-text {
+#hero.section .top-bar-container .top-bar-text {
   display: inline-block;
   animation: marquee 20s linear infinite;
   white-space: nowrap;
   text-transform: uppercase;
   font-size: min(2vw, 2vh);
 }
-#hero .content {
+#hero.section .content {
   width: 100vw;
   height: 100%;
 }
-#hero .content .image-container {
+#hero.section .content .image-container {
   display: flex;
   height: 5vh;
   margin-left: 5vw;
   margin-top: 5vh;
 }
-#hero .content .heading {
+#hero.section .content .heading {
   margin-left: 5vw;
   margin-top: 8vh;
   font-size: min(18vw, 36vh);
   font-family: "Caveat", serif;
 }
-#hero .content .sub-title {
+#hero.section .content .sub-title {
   width: 100%;
   text-align: right;
   font-family: "Rubik", sans-serif;
@@ -56,38 +56,38 @@ img {
   padding-right: 5vw;
   font-size: min(6vw, 12vh);
 }
-#hero .content .sub-title .focus {
+#hero.section .content .sub-title .focus {
   color: #e0003b;
 }
 
-#clients {
+#clients.section {
   background-color: #e0003b;
 }
-#clients .content {
+#clients.section .content {
   width: 100%;
   height: 100%;
 }
-#clients .content .text1 {
+#clients.section .content .text1 {
   margin-left: 6vw;
   margin-top: 10vh;
   font-size: min(7vw, 12vh);
   font-family: "Caveat", serif;
 }
-#about {
+#about.section {
   background-color: #040d12;
 }
-#about .content {
+#about.section .content {
   width: 100%;
   height: 100%;
 }
-#about .content .text1 {
+#about.section .content .text1 {
   margin-left: 6vw;
   margin-top: 10vh;
   font-size: min(7vw, 12vh);
   font-family: "Caveat", serif;
   color: #e0003b;
 }
-#about .content .text2 {
+#about.section .content .text2 {
   width: 100%;
   text-align: right;
   font-family: "Caveat", sans-serif;
@@ -96,7 +96,7 @@ img {
   font-size: max(3vw, 5vh);
   color: #e0003b;
 }
-#about .content .box-bottom {
+#about.section .content .box-bottom {
   width: 100%;
   height: fit-content;
   display: flex;
@@ -104,14 +104,14 @@ img {
   padding: 2vw 6vw;
   gap: 4rem;
 }
-#about .content .box-bottom .text-container {
+#about.section .content .box-bottom .text-container {
   flex: 1;
   padding: 4px;
   position: relative;
   height: fit-content;
   margin-bottom: 5vh;
 }
-#about .content .box-bottom .text-container .text3 {
+#about.section .content .box-bottom .text-container .text3 {
   z-index: 2;
   font-size: min(1.5vw, 3vh);
   padding: 3rem;
@@ -120,32 +120,32 @@ img {
   text-align: justify;
   margin: 0;
 }
-#about .content .box-bottom .text-container::before,
-#about .content .box-bottom .text-container::after {
+#about.section .content .box-bottom .text-container::before,
+#about.section .content .box-bottom .text-container::after {
   content: "";
   position: absolute;
   width: 3rem;
   height: 3rem;
   background-color: transparent;
 }
-#about .content .box-bottom .text-container::before {
+#about.section .content .box-bottom .text-container::before {
   top: 0;
   left: 0;
   border-left: 4px solid white;
   border-top: 4px solid white;
 }
-#about .content .box-bottom .text-container::after {
+#about.section .content .box-bottom .text-container::after {
   bottom: 0;
   right: 0;
   border-right: 4px solid white;
   border-bottom: 4px solid white;
 }
-#about .content .box-bottom .image-container {
+#about.section .content .box-bottom .image-container {
   margin-top: 6vw;
   display: flex;
   height: 20rem;
 }
-#about .red-box {
+#about.section .red-box {
   position: absolute;
   bottom: 0;
   right: 0;

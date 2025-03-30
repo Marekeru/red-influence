@@ -21,6 +21,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::post('/update', [AdminController::class, 'update'])->name('update');
     Route::patch('/updateContent', [AdminController::class, 'updateContent'])->name('updateContent');
 
+    Route::get('/users', [AdminController::class, 'users'])->name('users');
+    Route::get('/content', [AdminController::class, 'content'])->name('content');
+
     // Benutzerverwaltung (Nur für Admins)
     Route::middleware(['role:admin'])->group(function () {
         Route::post('/store-editor', [AdminController::class, 'storeEditor'])->name('storeEditor');
@@ -47,3 +50,8 @@ Route::get('/datenschutz', function () {
 })->name('datenschutz');
 
 require __DIR__.'/auth.php';
+
+//Client Image-Crud
+Route::get('clients', [\App\Http\Controllers\Client::class, 'index']);
+Route::get('add-client', [\App\Http\Controllers\Client::class, 'create']);
+Route::post('add-client', [\App\Http\Controllers\Client::class, 'store']);

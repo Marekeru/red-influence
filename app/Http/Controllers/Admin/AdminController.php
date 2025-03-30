@@ -7,14 +7,31 @@ use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
     public function index()
     {
         $settings = Setting::all()->keyBy('key');
+        return view('admin.index', compact('settings'));
+    }
+
+    public function users()
+    {
+        if (auth()->user()->role !== 'admin') {
+            abort(403, 'Nur Admins haben Zugriff auf diese Seite.');
+        }
+
+        $settings = Setting::all()->keyBy('key');
         $users = User::where('role', 'editor')->get();
-        return view('admin.index', compact('settings', 'users'));
+        return view('admin.users', compact('settings', 'users'));
+    }
+
+    public function content()
+    {
+        $settings = Setting::all()->keyBy('key');
+        return view('admin.content', compact('settings'));
     }
 
     public function update(Request $request)
@@ -37,7 +54,7 @@ class AdminController extends Controller
             Setting::updateOrCreate(['key' => 'favicon'], ['value' => $path]);
         }
 
-        return redirect()->route('admin.dashboard', ['tab' => 'general'])->with('success', 'Einstellungen gespeichert!');
+        return redirect()->route('admin.index')->with('success', 'Einstellungen gespeichert!');
     }
 
     public function updateContent(Request $request)
@@ -46,12 +63,15 @@ class AdminController extends Controller
             Setting::updateOrCreate(['key' => $key], ['value' => $value]);
         }
 
-        if ($request->hasFile('aboutPicture')) {
-            $path = $request->file('aboutPicture')->store('images', 'public');
-            Setting::updateOrCreate(['key' => 'aboutPicture'], ['value' => $path]);
+        foreach ($request->all() as $key => $file) {
+            if (str_starts_with($key, 'clients_picture_') && $request->hasFile($key)) {
+                $path = $file->store('images', 'public');
+                Setting::updateOrCreate(['key' => $key], ['value' => $path]);
+            }
         }
 
-        return redirect()->route('admin.dashboard', ['tab' => 'content'])->with('success', 'Seiteninhalte gespeichert!');
+        return redirect()->route('admin.content', ['tab' => $request->get('tab')])
+            ->with('success', 'Seiteninhalte gespeichert!');
     }
 
     public function storeEditor(Request $request)
@@ -69,11 +89,9 @@ class AdminController extends Controller
             'role' => 'editor',
         ]);
 
-        // Bleibt im Tab "Benutzerverwaltung"
-        return redirect()->route('admin.dashboard', ['tab' => 'users'])->with('success', 'Editor hinzugefügt.');
+        return redirect()->route('admin.users')->with('success', 'Editor hinzugefügt.');
     }
 
-    // 📌 Editor bearbeiten
     public function updateEditor(Request $request, User $user)
     {
         if ($user->role !== 'editor') {
@@ -87,11 +105,9 @@ class AdminController extends Controller
 
         $user->update($request->only(['name', 'email']));
 
-        // Bleibt im Tab "Benutzerverwaltung"
-        return redirect()->route('admin.dashboard', ['tab' => 'users'])->with('success', 'Editor aktualisiert.');
+        return redirect()->route('admin.users')->with('success', 'Editor aktualisiert.');
     }
 
-    // 📌 Editor löschen
     public function deleteEditor(User $user)
     {
         if ($user->role !== 'editor') {
@@ -101,6 +117,6 @@ class AdminController extends Controller
         $user->delete();
 
         // Bleibt im Tab "Benutzerverwaltung"
-        return redirect()->route('admin.dashboard', ['tab' => 'users'])->with('success', 'Editor gelöscht.');
+        return redirect()->route('admin.users')->with('success', 'Editor gelöscht.');
     }
 }
