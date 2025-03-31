@@ -10,7 +10,7 @@ class Client extends Controller
     public function index()
     {
         $clients = \App\Models\Client::all();
-        return view('admin.content', compact('clients'));
+        return view('admin.clients.index', compact('clients'));
     }
 
     public function create ()
@@ -20,6 +20,10 @@ class Client extends Controller
 
     public function store (Request $request)
     {
+        $request->validate([
+            'image' => 'required|file|mimes:jpg,jpeg,png,gif|max:10240',
+        ]);
+
         $client = new \App\Models\Client();
 
         $client->name = $request->input('name');
@@ -43,6 +47,10 @@ class Client extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'image' => 'required|file|mimes:jpg,jpeg,png,gif|max:10240',
+        ]);
+
         $client = \App\Models\Client::find($id);
 
         $client->name = $request->input('name');

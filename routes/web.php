@@ -25,7 +25,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/content', [AdminController::class, 'content'])->name('content');
 
     //Clients
-    Route::get('clients', [\App\Http\Controllers\Client::class, 'index'])->name('clients');
+    Route::get('/clients', [\App\Http\Controllers\Client::class, 'index'])->name('clients.index');
     Route::get('add-client', [\App\Http\Controllers\Client::class, 'create'])->name('add-client');
     Route::post('add-client', [\App\Http\Controllers\Client::class, 'store'])->name('add-client.store');
     Route::get('edit-client/{id}', [\App\Http\Controllers\Client::class, 'edit'])->name('edit-client');
@@ -33,7 +33,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('delete-client/{id}', [\App\Http\Controllers\Client::class, 'destroy'])->name('delete-client');
 
     //Projects
-    Route::get('projects', [\App\Http\Controllers\Project::class, 'index'])->name('projects');
+    Route::get('/projects', [\App\Http\Controllers\Project::class, 'index'])->name('projects.index');
     Route::get('add-project', [\App\Http\Controllers\Project::class, 'create'])->name('add-project');
     Route::post('add-project', [\App\Http\Controllers\Project::class, 'store'])->name('add-project.store');
     Route::get('edit-project/{id}', [\App\Http\Controllers\Project::class, 'edit'])->name('edit-project');

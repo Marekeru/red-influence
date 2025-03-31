@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Klient hinzufügen
-                            <a href="{{ route('admin.content') }}" class="btn btn-danger float-end">Zurück</a>
+                            <a href="{{ route('admin.clients.index') }}" class="btn btn-danger float-end">Zurück</a>
                         </h4>
                     </div>
                     <div class="card-body">

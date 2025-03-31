@@ -36,7 +36,6 @@ class AdminController extends Controller
         return view('admin.content', compact('clients', 'projects'));
     }
 
-
     public function update(Request $request)
     {
         foreach ($request->settings as $key => $value) {

@@ -10,7 +10,7 @@ class Project extends Controller
     public function index()
     {
         $projects = \App\Models\Project::all();
-        return view('admin.content', compact('projects'));
+        return view('admin.projects.index', compact('projects'));
     }
 
     public function create()
@@ -21,31 +21,18 @@ class Project extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
-            'media' => 'required|mimes:jpg,jpeg,png,mp4,avi,mkv|max:20000',
+            'video' => 'required|file|mimes:mp4,avi,mkv|max:102400',
         ]);
 
         $project = new \App\Models\Project();
 
-        // Speichern des Namens
         $project->name = $request->input('name');
-
-        // Überprüfen, ob eine Datei hochgeladen wurde
-        if ($request->hasFile('media')) {
-            $file = $request->file('media');
+        if ($project->video = $request->hasFile('video')) {
+            $file = $request->file('video');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
-
-            // Wenn es sich um ein Bild handelt
-            if (in_array($extension, ['jpg', 'jpeg', 'png'])) {
-                $file->move(public_path('uploads/projects/images'), $filename);
-                $project->video = 'images/' . $filename; // Bild speichern
-            }
-            // Wenn es sich um ein Video handelt
-            elseif (in_array($extension, ['mp4', 'avi', 'mkv'])) {
-                $file->move(public_path('uploads/projects/videos'), $filename);
-                $project->video = 'videos/' . $filename; // Video speichern
-            }
+            $file->move('uploads/projects/', $filename);
+            $project->video = $filename;
         }
 
         $project->save();
@@ -61,37 +48,26 @@ class Project extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'video' => 'required|file|mimes:mp4,avi,mkv|max:102400',
+        ]);
+
         $project = \App\Models\Project::find($id);
 
         $project->name = $request->input('name');
 
-        // Überprüfen, ob eine neue Datei hochgeladen wurde
-        if ($request->hasFile('media')) {
-            // Löschen der alten Datei (Bild oder Video)
-            $destination = 'uploads/projects/';
-            if ($project->video) {
-                // Löschen der alten Datei (Bild oder Video)
-                $oldFilePath = public_path($destination . $project->video);
-                if (File::exists($oldFilePath)) {
-                    File::delete($oldFilePath);
-                }
+        if ($request->hasFile('video')) {
+            $destination = 'uploads/projects/' . $project->image;
+            if (File::exists($destination)) {
+                File::delete($destination);
             }
 
-            // Neue Datei speichern
-            $file = $request->file('media');
+            $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
+            $file->move('uploads/projects/', $filename);
 
-            // Wenn es sich um ein Bild handelt
-            if (in_array($extension, ['jpg', 'jpeg', 'png'])) {
-                $file->move(public_path('uploads/projects/images'), $filename);
-                $project->video = 'images/' . $filename; // Bild speichern
-            }
-            // Wenn es sich um ein Video handelt
-            elseif (in_array($extension, ['mp4', 'avi', 'mkv'])) {
-                $file->move(public_path('uploads/projects/videos'), $filename);
-                $project->video = 'videos/' . $filename; // Video speichern
-            }
+            $project->image = $filename;
         }
 
         $project->save();
@@ -103,7 +79,6 @@ class Project extends Controller
     {
         $project = \App\Models\Project::find($id);
 
-        // Löschen der Datei (Bild oder Video)
         if ($project->video) {
             $filePath = public_path('uploads/projects/' . $project->video);
             if (File::exists($filePath)) {

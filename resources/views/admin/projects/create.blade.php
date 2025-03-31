@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Projekt hinzufügen
-                            <a href="{{ route('admin.content') }}" class="btn btn-danger float-end">Zurück</a>
+                            <a href="{{ route('admin.projects.index') }}" class="btn btn-danger float-end">Zurück</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -25,6 +25,11 @@
                             <div class="form-group mb-3">
                                 <label for="video">Video</label>
                                 <input type="file" name="video" class="form-control">
+                                <p>
+                                    @if($errors->has('video'))
+                                        {{ $errors->first('video') }}
+                                    @endif
+                                </p>
                             </div>
                             <div class="form-group mb-3">
                                 <button type="submit" class="btn btn-primary">Speichern</button>

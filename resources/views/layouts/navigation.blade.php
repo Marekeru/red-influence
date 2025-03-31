@@ -25,8 +25,16 @@
                         {{ __('Benutzerverwaltung') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('admin.content')" :active="request()->routeIs('admin.content')">
-                        {{ __('Content Management') }}
+                    <x-nav-link :href="route('admin.clients.index')" :active="request()->routeIs('admin.clients.index')">
+                        {{ __('Kunden Referenzen') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.projects.index')" :active="request()->routeIs('admin.projects.index')">
+                        {{ __('Projekte') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.members.index')" :active="request()->routeIs('admin.members.index')">
+                        {{ __('Team-Mitglieder') }}
                     </x-nav-link>
                 </div>
             </div>

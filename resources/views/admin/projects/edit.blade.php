@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Klient bearbeiten
-                            <a href="{{ route('admin.content') }}" class="btn btn-danger float-end">Zurück</a>
+                            <a href="{{ route('admin.projects.index') }}" class="btn btn-danger float-end">Zurück</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -33,16 +33,14 @@
                                     $extension = pathinfo($filePath, PATHINFO_EXTENSION);
                                 @endphp
 
-                                    <!-- Überprüfen, ob es ein Bild oder ein Video ist -->
-                                @if(in_array($extension, ['jpg', 'jpeg', 'png'])) <!-- Bild -->
-                                <img src="{{ $filePath }}" width="150px" alt="Image" style="background-color: grey; padding: 5px; border-radius: 5px;">
-                                @elseif(in_array($extension, ['mp4', 'avi', 'mkv'])) <!-- Video -->
-                                <video width="150px" controls>
-                                    <source src="{{ $filePath }}" type="video/{{ $extension }}">
-                                    Ihr Browser unterstützt das Video-Tag nicht.
-                                </video>
+                                @if(in_array($extension, ['jpg', 'jpeg', 'png']))
+                                    <img src="{{ $filePath }}" width="150px" alt="Image">
+                                @elseif(in_array($extension, ['mp4', 'avi', 'mkv']))
+                                    <video width="150px" controls>
+                                        <source src="{{ $filePath }}" type="video/{{ $extension }}">
+                                        Ihr Browser unterstützt das Video-Tag nicht.
+                                    </video>
                                 @else
-                                    <!-- Falls kein Bild oder Video gefunden wird -->
                                     <span class="text-danger">Kein gültiges Bild oder Video</span>
                                 @endif
                             </div>
