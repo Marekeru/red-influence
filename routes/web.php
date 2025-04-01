@@ -40,6 +40,14 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::put('update-project/{id}', [\App\Http\Controllers\Project::class, 'update'])->name('update-project');
     Route::get('delete-project/{id}', [\App\Http\Controllers\Project::class, 'destroy'])->name('delete-project');
 
+    //Members
+    Route::get('/members', [\App\Http\Controllers\Member::class, 'index'])->name('members.index');
+    Route::get('add-member', [\App\Http\Controllers\Member::class, 'create'])->name('add-member');
+    Route::post('add-member', [\App\Http\Controllers\Member::class, 'store'])->name('add-member.store');
+    Route::get('edit-member/{id}', [\App\Http\Controllers\Member::class, 'edit'])->name('edit-member');
+    Route::put('update-member/{id}', [\App\Http\Controllers\Member::class, 'update'])->name('update-member');
+    Route::get('delete-member/{id}', [\App\Http\Controllers\Member::class, 'destroy'])->name('delete-member');
+
     // Benutzerverwaltung (Nur für Admins)
     Route::middleware(['role:admin'])->group(function () {
         Route::post('/store-editor', [AdminController::class, 'storeEditor'])->name('storeEditor');

@@ -10,17 +10,21 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h4>Klient hinzufügen
-                            <a href="{{ route('admin.clients.index') }}" class="btn btn-danger float-end">Zurück</a>
+                        <h4>Team-Mitglied hinzufügen
+                            <a href="{{ route('admin.members.index') }}" class="btn btn-danger float-end">Zurück</a>
                         </h4>
                     </div>
                     <div class="card-body">
 
-                        <form action="{{ route('admin.add-client.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.add-member.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="name">Name</label>
                                 <input type="text" name="name" class="form-control">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="areas">Bereiche</label>
+                                <input type="text" name="areas" class="form-control mb-3">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="image">Grafik</label>
