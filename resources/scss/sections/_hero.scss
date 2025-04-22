@@ -8,51 +8,29 @@
 }
 
 
-#hero.section {
-    background-color: $background-color-black;
+#hero {
+    background-color: var(--background-color-dark);
 
-    .top-bar-container {
-        width: 100%;
-        height: fit-content;
-
-        .top-bar-text {
-            display: inline-block;
-            animation: marquee 20s linear infinite;
-            white-space: nowrap;
-            text-transform: uppercase;
-            font-size: $font-size-sm;
-        }
+    .image-container {
+        display: flex;
+        height: 6rem;
+        padding-top: 3rem;
     }
 
-    .content {
-        width: 100vw;
-        height: 100%;
+    .heading {
+        font-size: $font-size-xxl;
+        font-family: $font-family-accent;
+    }
 
-        .image-container {
-            display: flex;
-            height: 5vh;
-            margin-left: 5vw;
-            margin-top: 5vh;
-        }
+    .sub-title {
+        width: 100%;
+        text-align: right;
+        font-family: 'Rubik', sans-serif;
+        font-size: $font-size-lg;
+        margin: 0;
 
-        .heading {
-            margin-left: 5vw;
-            margin-top: 8vh;
-            font-size: $font-size-xxxl;
-            font-family: 'Caveat', serif;
-        }
-
-        .sub-title {
-            width: 100%;
-            text-align: right;
-            font-family: 'Rubik', sans-serif;
-            margin-top:  min(2vw, 3vh);
-            padding-right: 5vw;
-            font-size: $font-size-xl;
-
-            .focus {
-                color: $font-color-red;
-            }
+        .focus {
+            color: var(--font-color-accent);
         }
     }
 }

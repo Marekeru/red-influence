@@ -32,7 +32,7 @@
                                 </p>
                             </div>
                             <div class="form-group mb-3">
-                                <button type="submit" class="btn btn-primary">Speichern</button>
+                                <button type="submit" class="btn btn-success">Speichern</button>
                             </div>
                         </form>
 

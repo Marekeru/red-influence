@@ -14,7 +14,15 @@ class AdminController extends Controller
     public function index()
     {
         $settings = Setting::all()->keyBy('key');
-        return view('admin.index', compact('settings'));
+        $switches = \App\Models\HeroSwitch::all();
+        return view('admin.index', compact('settings','switches'));
+    }
+
+    public function indexDesign()
+    {
+        $settings = Setting::all()->keyBy('key');
+        $switches = \App\Models\HeroSwitch::all();
+        return view('admin.design.index', compact('settings','switches'));
     }
 
     public function users()

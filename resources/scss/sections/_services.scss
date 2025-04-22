@@ -1,0 +1,69 @@
+@import "../variables";
+@import "../mixins/bordered_text";
+
+#services {
+    background-color: var(--background-color-dark);
+
+    .services-heading {
+        font-size: $font-size-lg;
+        font-family: $font-family-accent;
+    }
+
+    .text-container {
+        margin-top: 2rem;
+        margin-right: 2rem;
+        @include bordered-text-container(
+            $padding: 1rem,
+            $font-size: $font-size-sm * 1.2,
+            $font-color: var(--font-color-light),
+            $border-color: var(--font-color-accent),
+            $corner-size: 1rem
+        )
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .service-box {
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        .service-text {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        &:hover .service-text {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        h3 {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .col-md-6 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+    }
+
+    .col-md-6 .service-box {
+        flex: 1;
+        margin-bottom: 1.5rem;
+    }
+}

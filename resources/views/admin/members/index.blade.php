@@ -18,8 +18,7 @@
                                 <th>Name</th>
                                 <th>Bereiche</th>
                                 <th>Grafik</th>
-                                <th>Bearbeiten</th>
-                                <th>Löschen</th>
+                                <th>Aktionen</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -27,14 +26,16 @@
                                 <tr>
                                     <td>{{ $member->id }}</td>
                                     <td>{{ $member->name }}</td>
-                                    <td>{{ $member->areas }}</td>
                                     <td>
-                                        <img src="{{ asset('uploads/members/'.$member->image) }}" width="150px" alt="Image" style="background-color: grey; padding: 5px; border-radius: 5px;">
+                                        @foreach($member->areas ?? [] as $area)
+                                            <span class="badge bg-primary me-1">{{ $area }}</span>
+                                        @endforeach
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.edit-member', $member->id) }}" class="btn btn-primary btn-sm">Bearbeiten</a>
+                                        <img src="{{ asset('uploads/members/'.$member->image) }}" width="150px" alt="Image">
                                     </td>
                                     <td>
+                                        <a href="{{ route('admin.edit-member', $member->id) }}" class="btn btn-warning btn-sm">Bearbeiten</a>
                                         <a href="{{ route('admin.delete-member', $member->id) }}" class="btn btn-danger btn-sm">Löschen</a>
                                     </td>
                                 </tr>

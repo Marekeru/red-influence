@@ -6,41 +6,55 @@
 @import "sections/hero";
 @import "sections/clients";
 @import "sections/about";
-@import "sections/footer";
-
-@import "pagepiling.js/dist/jquery.pagepiling.css";
-
-@import "pagepiling.js/dist/jquery.pagepiling.css";
+@import "sections/services";
+@import "sections/team";
+@import "sections/form";
+@import "sections/contact";
+@import "sections/projects";
 
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    overflow: auto;
-}
-
-#pagepiling {
-    position: relative;
-    width: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
     height: 100vh;
 }
 
-.section {
-    width: 100vw;
-    height: 100vh;
+section {
+    scroll-snap-align: start;
+    color: var(--font-color-light);
+    font-family: $font-family-normal;
+    cursor: default;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: white;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 5rem 4rem;
 }
 
-.snap-section {
-    width: 100vw;
-    height: 100vh;
+footer {
+    background-color: var(--background-color-dark);
+    width: 100%;
+
+    .footer-links {
+        bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 1rem;
+        font-size: 0.875rem;
+
+        a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+            color: transparentize(white,0.6);
+            font-weight: normal;
+        }
+    }
 }
 
-#pp-nav {
+/*#pp-nav {
     top: 50%;
 
     ul {
@@ -86,5 +100,4 @@ html, body {
             }
         }
     }
-}
-
+}*/

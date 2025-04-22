@@ -18,19 +18,22 @@ class Member extends Controller
         return view('admin.members.create');
     }
 
-    public function store (Request $request)
+    public function store(Request $request)
     {
         $request->validate([
+            'name'  => 'required|string|max:255',
             'image' => 'required|file|mimes:jpg,jpeg,png,gif|max:10240',
+            'areas' => 'nullable|string',
         ]);
 
         $member = new \App\Models\Member();
-
         $member->name = $request->input('name');
-        if($member->image = $request->hasFile('image')) {
+
+        $member->areas = json_decode($request->input('areas'), true) ?? [];
+
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
+            $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move('uploads/members/', $filename);
             $member->image = $filename;
         }
@@ -40,6 +43,7 @@ class Member extends Controller
         return redirect()->back()->with('status', 'Team-Mitglied erfolgreich hinzugefügt');
     }
 
+
     public function edit($id) {
         $member = \App\Models\Member::find($id);
         return view('admin.members.edit', compact('member'));
@@ -48,12 +52,19 @@ class Member extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'image' => 'required|file|mimes:jpg,jpeg,png,gif|max:10240',
+            'name'  => 'required|string|max:255',
+            'image' => 'nullable|file|mimes:jpg,jpeg,png,gif|max:10240',
+            'areas' => 'nullable|string', // JSON-String von den Tags
         ]);
 
         $member = \App\Models\Member::find($id);
+        if (!$member) {
+            return redirect()->back()->with('error', 'Team-Mitglied nicht gefunden');
+        }
 
         $member->name = $request->input('name');
+
+        $member->areas = json_decode($request->input('areas'), true) ?? [];
 
         if ($request->hasFile('image')) {
             $destination = 'uploads/members/' . $member->image;
@@ -62,10 +73,8 @@ class Member extends Controller
             }
 
             $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
+            $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move('uploads/members/', $filename);
-
             $member->image = $filename;
         }
 
@@ -73,6 +82,7 @@ class Member extends Controller
 
         return redirect()->back()->with('status', 'Team-Mitglied erfolgreich aktualisiert');
     }
+
 
     public function destroy($id) {
         $member = \App\Models\Member::find($id);

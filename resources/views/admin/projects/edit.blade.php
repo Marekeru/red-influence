@@ -46,7 +46,7 @@
                             </div>
 
                             <div class="form-group mb-3">
-                                <button type="submit" class="btn btn-primary">Aktualisieren</button>
+                                <button type="submit" class="btn btn-success">Aktualisieren</button>
                             </div>
                         </form>
 

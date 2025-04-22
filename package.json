@@ -20,6 +20,7 @@
         "bootstrap": "^5.3.3",
         "jquery": "^3.7.1",
         "pagepiling.js": "^1.5.6",
-        "sass": "^1.85.0"
+        "sass": "^1.85.0",
+        "swiper": "^11.2.6"
     }
 }

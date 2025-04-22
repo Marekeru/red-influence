@@ -17,8 +17,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Medium</th>
-                                <th>Bearbeiten</th>
-                                <th>Löschen</th>
+                                <th>Aktionen</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -45,9 +44,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.edit-project', $project->id) }}" class="btn btn-primary btn-sm">Bearbeiten</a>
-                                        </td>
-                                        <td>
+                                            <a href="{{ route('admin.edit-project', $project->id) }}" class="btn btn-warning btn-sm">Bearbeiten</a>
                                             <a href="{{ route('admin.delete-project', $project->id) }}" class="btn btn-danger btn-sm">Löschen</a>
                                         </td>
                                     </tr>

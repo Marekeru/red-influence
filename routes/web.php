@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Models\Content;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     $contents = Content::where('published', true)->get();
@@ -23,6 +24,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     Route::get('/users', [AdminController::class, 'users'])->name('users');
     Route::get('/content', [AdminController::class, 'content'])->name('content');
+    Route::get('/index', [AdminController::class, 'index'])->name('index');
+    Route::get('/design', [AdminController::class, 'indexDesign'])->name('design.index');
 
     //Clients
     Route::get('/clients', [\App\Http\Controllers\Client::class, 'index'])->name('clients.index');

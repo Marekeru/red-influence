@@ -1,0 +1,65 @@
+@mixin bordered-text-container(
+    $padding: 3rem,
+    $font-size: 1rem,
+    $font-color: white,
+    $border-color: white,
+    $corner-size: 3rem,
+    $corner-thickness: 2px
+) {
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    padding: $padding;
+
+    p,a,h1,h2,h3 {
+        z-index: 2;
+        font-size: $font-size;
+        color: $font-color!important;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: $corner-size;
+        height: $corner-size;
+        background-color: transparent;
+    }
+
+    &::before {
+        top: 0;
+        left: 0;
+        border-left: $corner-thickness solid $border-color;
+        border-top: $corner-thickness solid $border-color;
+    }
+
+    &::after {
+        bottom: 0;
+        right: 0;
+        border-right: $corner-thickness solid $border-color;
+        border-bottom: $corner-thickness solid $border-color;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:hover::before {
+        top: 0;
+        left: 0;
+        border-left: $corner-thickness + 2px solid $border-color;
+        border-top: $corner-thickness + 2px solid $border-color;
+    }
+
+    &:hover::after {
+        bottom: 0;
+        right: 0;
+        border-right: $corner-thickness + 2px solid $border-color;
+        border-bottom: $corner-thickness + 2px solid $border-color;
+    }
+}

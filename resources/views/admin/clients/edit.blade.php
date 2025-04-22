@@ -29,7 +29,7 @@
                                 <img src="{{ asset('uploads/clients/'.$client->image) }}" width="150px" alt="Image" style="background-color: grey; padding: 5px; border-radius: 5px;">
                             </div>
                             <div class="form-group mb-3">
-                                <button type="submit" class="btn btn-primary">Aktualisieren</button>
+                                <button type="submit" class="btn btn-success">Aktualisieren</button>
                             </div>
                         </form>
 

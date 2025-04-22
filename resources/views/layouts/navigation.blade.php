@@ -7,7 +7,7 @@
                         <div class="shrink-0 flex items-center">
                             <a href="{{ route('dashboard') }}">
                                 @if (\App\Models\Setting::getValue('logo'))
-                                    <img src="{{ asset('storage/' . \App\Models\Setting::getValue('logo')) }}" alt="Logo" class="h-9">
+                                    <img src="{{ asset('storage/' . \App\Models\Setting::getValue('logo')) }}" alt="Logo" width="200px">
                                 @else
                                     <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                                 @endif
@@ -21,9 +21,9 @@
                         {{ __('Administration') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
+                    <!--<x-nav-link :href="route('admin.users')" :active="request()->routeIs('admin.users')">
                         {{ __('Benutzerverwaltung') }}
-                    </x-nav-link>
+                    </x-nav-link>-->
 
                     <x-nav-link :href="route('admin.clients.index')" :active="request()->routeIs('admin.clients.index')">
                         {{ __('Kunden Referenzen') }}
@@ -35,6 +35,10 @@
 
                     <x-nav-link :href="route('admin.members.index')" :active="request()->routeIs('admin.members.index')">
                         {{ __('Team-Mitglieder') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.design.index')" :active="request()->routeIs('admin.members.index')">
+                        {{ __('Design') }}
                     </x-nav-link>
                 </div>
             </div>

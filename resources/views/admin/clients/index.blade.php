@@ -17,8 +17,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Grafik</th>
-                                <th>Bearbeiten</th>
-                                <th>Löschen</th>
+                                <th>Aktionen</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -30,9 +29,7 @@
                                         <img src="{{ asset('uploads/clients/'.$client->image) }}" width="150px" alt="Image" style="background-color: grey; padding: 5px; border-radius: 5px;">
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.edit-client', $client->id) }}" class="btn btn-primary btn-sm">Bearbeiten</a>
-                                    </td>
-                                    <td>
+                                        <a href="{{ route('admin.edit-client', $client->id) }}" class="btn btn-warning btn-sm">Bearbeiten</a>
                                         <a href="{{ route('admin.delete-client', $client->id) }}" class="btn btn-danger btn-sm">Löschen</a>
                                     </td>
                                 </tr>

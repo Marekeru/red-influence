@@ -1,12 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
 //Colors
-$background-color-black: #040d12;
-$font-color-red: #e0003b;
+//$background-color-dark: #040d12;
+//$font-color-light: white;
+//$font-color-accent: #e0003b;
 
-//font-weights
-$font-size-sm: min(2vw, 2vh);  // Nimmt den kleineren Wert von 4% der Breite oder 4% der Höhe
-$font-size-md: min(2vw, 4vh);  // Nimmt den kleineren Wert von 6% der Breite oder 6% der Höhe
-$font-size-lg: min(4vw, 8vh); // Nimmt den kleineren Wert von 10% der Breite oder 10% der Höhe
-$font-size-xl: min(6vw, 12vh); // Nimmt den kleineren Wert von 12% der Breite oder 12% der Höhe
-$font-size-xxl: min(15vw, 30vh); // Nimmt den kleineren Wert von 15% der Breite oder 15% der Höhe
-$font-size-xxxl: min(18vw, 36vh); // Nimmt den kleineren Wert von 18% der Breite oder 18% der Höhe
+//Font Sizes
+$font-size-sm: 1rem;
+$font-size-md: 2rem;
+$font-size-lg: 7rem;
+$font-size-xl: 10rem;
+$font-size-xxl: 16rem;
 
+//Font Families
+$font-family-normal: 'Rubik', sans-serif;
+$font-family-accent: 'Lexend', sans-serif;
+
+//Others
+$client-logo-animation-speed : 15s;

@@ -1,30 +1,19 @@
-<section class="snap-section">
+<section id="about">
+    <p class="text1">What?</p>
 
-    <div class="content">
+    <p class="text2">Tabuthemen sind unser Business.</p>
 
-        <p class="text1">
-            {{ \App\Models\Setting::getValue('about_text1') }}
-        </p>
+    <div class="box-bottom">
 
-        <p class="text2">
-            {{ \App\Models\Setting::getValue('about_text2') }}
-        </p>
-
-        <div class="box-bottom">
-
-            <div class="text-container">
-                <p class="text3">
-                    {{ \App\Models\Setting::getValue('about_text3') }}
-                </p>
-            </div>
-
-            @if (\App\Models\Setting::getValue('aboutPicture'))
-                <div class="image-container">
-                    <img src="{{ asset('storage/' . \App\Models\Setting::getValue('aboutPicture')) }}" alt="Logo" class="aboutPicture">
-                </div>
-            @endif
+        <div class="text-container">
+            <p class="text3">Wir machen Social Media für Themen, die andere meiden, und bringen außergewöhnliche Marken groß raus. Außerdem: Personal Branding für Adult Creatorinnen – mit allem, was dazugehört: Wachstum, Support und smarter Strategie. </p>
         </div>
 
-        <div class="red-box"></div>
+        <div class="image-container">
+            <img src="{{ asset('uploads/page_content/about_picture.png') }}" alt="Logo" class="aboutPicture">
+        </div>
+
     </div>
+
+    <div class="red-box"></div>
 </section>
